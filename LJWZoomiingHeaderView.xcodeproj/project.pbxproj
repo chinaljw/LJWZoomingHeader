@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		722AF1331BBE3F760016090A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1321BBE3F760016090A /* main.m */; };
+		722AF1361BBE3F760016090A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1351BBE3F760016090A /* AppDelegate.m */; };
+		722AF1391BBE3F760016090A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1381BBE3F760016090A /* ViewController.m */; };
+		722AF13C1BBE3F760016090A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722AF13A1BBE3F760016090A /* Main.storyboard */; };
+		722AF13E1BBE3F760016090A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722AF13D1BBE3F760016090A /* Images.xcassets */; };
+		722AF1411BBE3F760016090A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722AF13F1BBE3F760016090A /* LaunchScreen.xib */; };
+		722AF14D1BBE3F760016090A /* LJWZoomiingHeaderViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF14C1BBE3F760016090A /* LJWZoomiingHeaderViewTests.m */; };
+		722AF15E1BBE509E0016090A /* 7494e68agb7a98471e34f&690.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 722AF15D1BBE509E0016090A /* 7494e68agb7a98471e34f&690.jpg */; };
+		722AF1651BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1621BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m */; };
+		722AF1661BBE5C4E0016090A /* UIScrollViewScrollInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1641BBE5C4E0016090A /* UIScrollViewScrollInfo.m */; };
+		722AF16A1BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1691BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m */; };
+		722AF16D1BBE604C0016090A /* LJWZoomingHeaderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF16C1BBE604C0016090A /* LJWZoomingHeaderControl.m */; };
+		722AF1701BBE64F00016090A /* TestZoomingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF16F1BBE64F00016090A /* TestZoomingHeaderView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		722AF1471BBE3F760016090A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 722AF1251BBE3F760016090A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 722AF12C1BBE3F760016090A;
+			remoteInfo = LJWZoomiingHeaderView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		722AF12D1BBE3F760016090A /* LJWZoomiingHeaderView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJWZoomiingHeaderView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		722AF1311BBE3F760016090A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		722AF1321BBE3F760016090A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		722AF1341BBE3F760016090A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		722AF1351BBE3F760016090A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		722AF1371BBE3F760016090A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		722AF1381BBE3F760016090A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		722AF13B1BBE3F760016090A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		722AF13D1BBE3F760016090A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		722AF1401BBE3F760016090A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		722AF1461BBE3F760016090A /* LJWZoomiingHeaderViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LJWZoomiingHeaderViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		722AF14B1BBE3F760016090A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		722AF14C1BBE3F760016090A /* LJWZoomiingHeaderViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJWZoomiingHeaderViewTests.m; sourceTree = "<group>"; };
+		722AF15D1BBE509E0016090A /* 7494e68agb7a98471e34f&690.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7494e68agb7a98471e34f&690.jpg"; sourceTree = "<group>"; };
+		722AF1611BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewContentOffsetObserver.h; sourceTree = "<group>"; };
+		722AF1621BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewContentOffsetObserver.m; sourceTree = "<group>"; };
+		722AF1631BBE5C4E0016090A /* UIScrollViewScrollInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewScrollInfo.h; sourceTree = "<group>"; };
+		722AF1641BBE5C4E0016090A /* UIScrollViewScrollInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewScrollInfo.m; sourceTree = "<group>"; };
+		722AF1671BBE5C750016090A /* LJWZoomingHeaderViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJWZoomingHeaderViewProtocol.h; sourceTree = "<group>"; };
+		722AF1681BBE5C980016090A /* UIScrollView+LJWZoomingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+LJWZoomingHeader.h"; sourceTree = "<group>"; };
+		722AF1691BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+LJWZoomingHeader.m"; sourceTree = "<group>"; };
+		722AF16B1BBE604C0016090A /* LJWZoomingHeaderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJWZoomingHeaderControl.h; sourceTree = "<group>"; };
+		722AF16C1BBE604C0016090A /* LJWZoomingHeaderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJWZoomingHeaderControl.m; sourceTree = "<group>"; };
+		722AF16E1BBE64F00016090A /* TestZoomingHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestZoomingHeaderView.h; sourceTree = "<group>"; };
+		722AF16F1BBE64F00016090A /* TestZoomingHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestZoomingHeaderView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		722AF12A1BBE3F760016090A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		722AF1431BBE3F760016090A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		722AF1241BBE3F760016090A = {
+			isa = PBXGroup;
+			children = (
+				722AF12F1BBE3F760016090A /* LJWZoomiingHeaderView */,
+				722AF1491BBE3F760016090A /* LJWZoomiingHeaderViewTests */,
+				722AF12E1BBE3F760016090A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		722AF12E1BBE3F760016090A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				722AF12D1BBE3F760016090A /* LJWZoomiingHeaderView.app */,
+				722AF1461BBE3F760016090A /* LJWZoomiingHeaderViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		722AF12F1BBE3F760016090A /* LJWZoomiingHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				722AF15F1BBE5C030016090A /* LJWZoomingHeader */,
+				722AF15D1BBE509E0016090A /* 7494e68agb7a98471e34f&690.jpg */,
+				722AF1341BBE3F760016090A /* AppDelegate.h */,
+				722AF1351BBE3F760016090A /* AppDelegate.m */,
+				722AF1371BBE3F760016090A /* ViewController.h */,
+				722AF1381BBE3F760016090A /* ViewController.m */,
+				722AF16E1BBE64F00016090A /* TestZoomingHeaderView.h */,
+				722AF16F1BBE64F00016090A /* TestZoomingHeaderView.m */,
+				722AF13A1BBE3F760016090A /* Main.storyboard */,
+				722AF13D1BBE3F760016090A /* Images.xcassets */,
+				722AF13F1BBE3F760016090A /* LaunchScreen.xib */,
+				722AF1301BBE3F760016090A /* Supporting Files */,
+			);
+			path = LJWZoomiingHeaderView;
+			sourceTree = "<group>";
+		};
+		722AF1301BBE3F760016090A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				722AF1311BBE3F760016090A /* Info.plist */,
+				722AF1321BBE3F760016090A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		722AF1491BBE3F760016090A /* LJWZoomiingHeaderViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				722AF14C1BBE3F760016090A /* LJWZoomiingHeaderViewTests.m */,
+				722AF14A1BBE3F760016090A /* Supporting Files */,
+			);
+			path = LJWZoomiingHeaderViewTests;
+			sourceTree = "<group>";
+		};
+		722AF14A1BBE3F760016090A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				722AF14B1BBE3F760016090A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		722AF15F1BBE5C030016090A /* LJWZoomingHeader */ = {
+			isa = PBXGroup;
+			children = (
+				722AF1601BBE5C4E0016090A /* LJWScrollViewObserver */,
+				722AF1671BBE5C750016090A /* LJWZoomingHeaderViewProtocol.h */,
+				722AF1681BBE5C980016090A /* UIScrollView+LJWZoomingHeader.h */,
+				722AF1691BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m */,
+				722AF16B1BBE604C0016090A /* LJWZoomingHeaderControl.h */,
+				722AF16C1BBE604C0016090A /* LJWZoomingHeaderControl.m */,
+			);
+			path = LJWZoomingHeader;
+			sourceTree = "<group>";
+		};
+		722AF1601BBE5C4E0016090A /* LJWScrollViewObserver */ = {
+			isa = PBXGroup;
+			children = (
+				722AF1611BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.h */,
+				722AF1621BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m */,
+				722AF1631BBE5C4E0016090A /* UIScrollViewScrollInfo.h */,
+				722AF1641BBE5C4E0016090A /* UIScrollViewScrollInfo.m */,
+			);
+			path = LJWScrollViewObserver;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		722AF12C1BBE3F760016090A /* LJWZoomiingHeaderView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 722AF1501BBE3F760016090A /* Build configuration list for PBXNativeTarget "LJWZoomiingHeaderView" */;
+			buildPhases = (
+				722AF1291BBE3F760016090A /* Sources */,
+				722AF12A1BBE3F760016090A /* Frameworks */,
+				722AF12B1BBE3F760016090A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LJWZoomiingHeaderView;
+			productName = LJWZoomiingHeaderView;
+			productReference = 722AF12D1BBE3F760016090A /* LJWZoomiingHeaderView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		722AF1451BBE3F760016090A /* LJWZoomiingHeaderViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 722AF1531BBE3F760016090A /* Build configuration list for PBXNativeTarget "LJWZoomiingHeaderViewTests" */;
+			buildPhases = (
+				722AF1421BBE3F760016090A /* Sources */,
+				722AF1431BBE3F760016090A /* Frameworks */,
+				722AF1441BBE3F760016090A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				722AF1481BBE3F760016090A /* PBXTargetDependency */,
+			);
+			name = LJWZoomiingHeaderViewTests;
+			productName = LJWZoomiingHeaderViewTests;
+			productReference = 722AF1461BBE3F760016090A /* LJWZoomiingHeaderViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		722AF1251BBE3F760016090A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = ljw;
+				TargetAttributes = {
+					722AF12C1BBE3F760016090A = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					722AF1451BBE3F760016090A = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 722AF12C1BBE3F760016090A;
+					};
+				};
+			};
+			buildConfigurationList = 722AF1281BBE3F760016090A /* Build configuration list for PBXProject "LJWZoomiingHeaderView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 722AF1241BBE3F760016090A;
+			productRefGroup = 722AF12E1BBE3F760016090A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				722AF12C1BBE3F760016090A /* LJWZoomiingHeaderView */,
+				722AF1451BBE3F760016090A /* LJWZoomiingHeaderViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		722AF12B1BBE3F760016090A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				722AF13C1BBE3F760016090A /* Main.storyboard in Resources */,
+				722AF15E1BBE509E0016090A /* 7494e68agb7a98471e34f&690.jpg in Resources */,
+				722AF1411BBE3F760016090A /* LaunchScreen.xib in Resources */,
+				722AF13E1BBE3F760016090A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		722AF1441BBE3F760016090A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		722AF1291BBE3F760016090A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				722AF16A1BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m in Sources */,
+				722AF1701BBE64F00016090A /* TestZoomingHeaderView.m in Sources */,
+				722AF1661BBE5C4E0016090A /* UIScrollViewScrollInfo.m in Sources */,
+				722AF1651BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m in Sources */,
+				722AF1391BBE3F760016090A /* ViewController.m in Sources */,
+				722AF16D1BBE604C0016090A /* LJWZoomingHeaderControl.m in Sources */,
+				722AF1361BBE3F760016090A /* AppDelegate.m in Sources */,
+				722AF1331BBE3F760016090A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		722AF1421BBE3F760016090A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				722AF14D1BBE3F760016090A /* LJWZoomiingHeaderViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		722AF1481BBE3F760016090A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 722AF12C1BBE3F760016090A /* LJWZoomiingHeaderView */;
+			targetProxy = 722AF1471BBE3F760016090A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		722AF13A1BBE3F760016090A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				722AF13B1BBE3F760016090A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		722AF13F1BBE3F760016090A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				722AF1401BBE3F760016090A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		722AF14E1BBE3F760016090A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		722AF14F1BBE3F760016090A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		722AF1511BBE3F760016090A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LJWZoomiingHeaderView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		722AF1521BBE3F760016090A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LJWZoomiingHeaderView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		722AF1541BBE3F760016090A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LJWZoomiingHeaderViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LJWZoomiingHeaderView.app/LJWZoomiingHeaderView";
+			};
+			name = Debug;
+		};
+		722AF1551BBE3F760016090A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LJWZoomiingHeaderViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LJWZoomiingHeaderView.app/LJWZoomiingHeaderView";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		722AF1281BBE3F760016090A /* Build configuration list for PBXProject "LJWZoomiingHeaderView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				722AF14E1BBE3F760016090A /* Debug */,
+				722AF14F1BBE3F760016090A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		722AF1501BBE3F760016090A /* Build configuration list for PBXNativeTarget "LJWZoomiingHeaderView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				722AF1511BBE3F760016090A /* Debug */,
+				722AF1521BBE3F760016090A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		722AF1531BBE3F760016090A /* Build configuration list for PBXNativeTarget "LJWZoomiingHeaderViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				722AF1541BBE3F760016090A /* Debug */,
+				722AF1551BBE3F760016090A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 722AF1251BBE3F760016090A /* Project object */;
+}
