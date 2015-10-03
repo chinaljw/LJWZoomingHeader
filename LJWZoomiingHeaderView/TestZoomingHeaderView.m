@@ -21,6 +21,11 @@
     return self;
 }
 
+- (void)dealloc
+{
+    NSLog(@"dealloc %@", self);
+}
+
 #pragma mark - Setter & Getter
 - (UIView *)centerView
 {

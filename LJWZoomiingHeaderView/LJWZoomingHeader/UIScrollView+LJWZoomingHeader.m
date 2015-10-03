@@ -9,6 +9,7 @@
 #import "UIScrollView+LJWZoomingHeader.h"
 #import <objc/runtime.h>
 #import "LJWZoomingHeaderControl.h"
+#import "UIView+BelongController.h"
 
 @interface UIScrollView () <UIScrollViewContentOffsetObserverDelegate>
 
@@ -29,7 +30,7 @@
         SEL deallocNewSEL = @selector(ljw_contentOffsetObserver_dealloc);
         [self swizzlOriginSEL:deallocOriginSEL newSEL:deallocNewSEL];
         
-//        SEL layoutSubviewsOriginSEL = @selector(didMoveToSuperview);
+//        SEL layoutSubviewsOriginSEL = @selector(layoutSubviews);
 //        SEL layoutSubviewsNewSEL = @selector(ljw_contentOffsetObserver_layoutSubViews);
 //        [self swizzlOriginSEL:layoutSubviewsOriginSEL newSEL:layoutSubviewsNewSEL];
         
@@ -47,7 +48,7 @@
 //- (void)ljw_contentOffsetObserver_layoutSubViews
 //{
 //    
-//    [self resetZoomingHeaderViewFrame];
+////    [self resetZoomingHeaderViewFrame];
 //    
 //    [self ljw_contentOffsetObserver_layoutSubViews];
 //}
@@ -64,7 +65,6 @@
     {
         method_exchangeImplementations(originMethod, newMethod);
     }
-
 }
 
 #pragma mark - Setter & Getter
@@ -128,18 +128,34 @@
 #pragma mark - Helper
 - (void)resetZoomingHeaderViewFrameAndSelfInset
 {
+    [self resetZoomingHeaderViewFrame];
     
+    [self resetContentInset];
+}
+
+- (void)resetZoomingHeaderViewFrame
+{
     CGFloat offset = [self.zoomingHeaderView respondsToSelector:@selector(frameOffset)] ? self.zoomingHeaderView.frameOffset : 0;
     
     CGRect frame = self.zoomingHeaderView.frame;
     frame.origin.x = 0;
     frame.origin.y = - frame.size.height + offset;
-//    frame.size.width = self.frame.size.width;
+    //    frame.size.width = self.frame.size.width;
     self.zoomingHeaderView.frame = frame;
     self.zoomingHeaderView.originFrame = frame;
+}
+
+- (void)resetContentInset
+{
+    CGFloat topInset = - self.zoomingHeaderView.originFrame.origin.y;
     
-    self.contentInset = UIEdgeInsetsMake(self.zoomingHeaderView.originFrame.size.height - offset, 0, 0, 0);
+    if (self.belongController.automaticallyAdjustsScrollViewInsets) {
+        topInset -= 64.f;
+    }
     
+    self.contentInset = UIEdgeInsetsMake(topInset, 0, 0, 0);
+    
+    self.scrollIndicatorInsets = self.contentInset;
 }
 
 - (void)addControl
@@ -160,8 +176,7 @@
 
 - (void)removeContentOffsetObserver
 {
-    [self.contentOffsetObserver releaseBindingScrollView];
-    self.contentOffsetObserver = nil;
+    [self.contentOffsetObserver releaseBindingScrollView:self];
 }
 
 @end

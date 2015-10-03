@@ -29,9 +29,14 @@
     [scrollView addObserver:self forKeyPath:ContentOffsetKeyPath options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
 }
 
-- (void)releaseBindingScrollView
+- (void)releaseBindingScrollView:(UIScrollView *)scrollView
 {
-    [self.bingScrollView removeObserver:self forKeyPath:ContentOffsetKeyPath];
+    [scrollView removeObserver:self forKeyPath:ContentOffsetKeyPath];
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc %@", self);
 }
 
 @end

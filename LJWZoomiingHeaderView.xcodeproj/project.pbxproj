@@ -20,6 +20,7 @@
 		722AF16A1BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1691BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m */; };
 		722AF16D1BBE604C0016090A /* LJWZoomingHeaderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF16C1BBE604C0016090A /* LJWZoomingHeaderControl.m */; };
 		722AF1701BBE64F00016090A /* TestZoomingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF16F1BBE64F00016090A /* TestZoomingHeaderView.m */; };
+		7233139C1BBFBD6300849364 /* UIView+BelongController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7233139B1BBFBD6300849364 /* UIView+BelongController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		722AF16C1BBE604C0016090A /* LJWZoomingHeaderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJWZoomingHeaderControl.m; sourceTree = "<group>"; };
 		722AF16E1BBE64F00016090A /* TestZoomingHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestZoomingHeaderView.h; sourceTree = "<group>"; };
 		722AF16F1BBE64F00016090A /* TestZoomingHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestZoomingHeaderView.m; sourceTree = "<group>"; };
+		7233139A1BBFBD6300849364 /* UIView+BelongController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BelongController.h"; sourceTree = "<group>"; };
+		7233139B1BBFBD6300849364 /* UIView+BelongController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BelongController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,8 @@
 				722AF1691BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m */,
 				722AF16B1BBE604C0016090A /* LJWZoomingHeaderControl.h */,
 				722AF16C1BBE604C0016090A /* LJWZoomingHeaderControl.m */,
+				7233139A1BBFBD6300849364 /* UIView+BelongController.h */,
+				7233139B1BBFBD6300849364 /* UIView+BelongController.m */,
 			);
 			path = LJWZoomingHeader;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				722AF1701BBE64F00016090A /* TestZoomingHeaderView.m in Sources */,
 				722AF1661BBE5C4E0016090A /* UIScrollViewScrollInfo.m in Sources */,
 				722AF1651BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m in Sources */,
+				7233139C1BBFBD6300849364 /* UIView+BelongController.m in Sources */,
 				722AF1391BBE3F760016090A /* ViewController.m in Sources */,
 				722AF16D1BBE604C0016090A /* LJWZoomingHeaderControl.m in Sources */,
 				722AF1361BBE3F760016090A /* AppDelegate.m in Sources */,
@@ -400,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LJWZoomiingHeaderView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -410,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LJWZoomiingHeaderView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -22,10 +22,8 @@ static NSString *const ContentOffsetKeyPath = @"contentOffset";
 
 @property (nonatomic, weak) id<UIScrollViewContentOffsetObserverDelegate> delegate;
 
-@property (nonatomic, weak) UIScrollView *bingScrollView;
-
 - (void)bindingScrollView:(UIScrollView *)scrollView;
 
-- (void)releaseBindingScrollView;
+- (void)releaseBindingScrollView:(UIScrollView *)scrollView;
 
 @end

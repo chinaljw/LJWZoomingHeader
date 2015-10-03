@@ -7,8 +7,13 @@
 //
 
 #import "LJWZoomingHeaderControl.h"
+#import "UIView+BelongController.h"
 
-@interface LJWZoomingHeaderControl () 
+@interface LJWZoomingHeaderControl ()
+{
+    //resetFrame的次数
+    NSUInteger resetCount;
+}
 
 @end
 
@@ -52,8 +57,16 @@
 
 - (void)resetHeightAndYWithInfo:(UIScrollViewScrollInfo *)info
 {
+    
+    //纯粹为了适配automaticallyAdjustsScrollViewInsets = YES的情况
+    resetCount ++;
+    if (info.scrollView.belongController.automaticallyAdjustsScrollViewInsets && resetCount == 3) {
+        self.zoomingHeaderView.frame = self.zoomingHeaderView.originFrame;
+        return;
+    }
+    
     CGRect frame = self.zoomingHeaderView.frame;
-    CGFloat change = -(info.newContentOffset.y - info.oldContentOffset.y);
+    CGFloat change = - (info.newContentOffset.y - info.oldContentOffset.y);
     frame.size.height += change;
     frame.size.width += change;
     
