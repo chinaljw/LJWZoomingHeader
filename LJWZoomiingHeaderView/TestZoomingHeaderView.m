@@ -56,14 +56,14 @@
     self.imageView.frame = self.bounds;
 }
 
-- (CGFloat)maxHeight
-{
-    return 400.f;
-}
+//- (CGFloat)maxHeight
+//{
+//    return 1000.f;
+//}
 
 - (CGFloat)frameOffset
 {
-    return 50.f;
+    return 0.f;
 }
 
 @end

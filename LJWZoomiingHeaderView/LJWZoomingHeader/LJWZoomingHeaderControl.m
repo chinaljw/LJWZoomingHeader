@@ -76,6 +76,7 @@
     CGFloat originY = self.zoomingHeaderView.originFrame.origin.y;
     CGFloat originWidth = self.zoomingHeaderView.originFrame.size.width;
     
+    
     //是否往上滑
     if (info.scrollDirection == UIScrollViewScrollDirectionToTop) {
         
@@ -86,14 +87,28 @@
     }
     
     //判断是否往下滑，且header是否不在屏幕中
-    if (info.scrollDirection == UIScrollViewScrollDirectionToBottom && info.newContentOffset.y > self.zoomingHeaderView.originFrame.origin.y) {
-        
+    if (info.scrollDirection == UIScrollViewScrollDirectionToBottom && info.newContentOffset.y > originY) {
         frame.origin.y = frame.origin.y <  originY ? originY : frame.origin.y;
         frame.size.height = frame.size.height > originHeight ? originHeight : frame.size.height;
         frame.size.width = frame.size.width > originWidth ? originWidth : frame.size.width;
     }
     
+    //当Header没有完全消失时，修正frame
+    if (info.scrollView.contentOffset.y != self.zoomingHeaderView.frame.origin.y && info.newContentOffset.y < originY && info.newContentOffset.y < 0) {
+        
+        frame.origin.y = info.scrollView.contentOffset.y;
+        frame.size.height = -frame.origin.y;
+        frame.size.width = frame.size.height / originHeight * originWidth;
+        frame.origin.x =  originWidth - frame.size.width;
+        
+    }
+
+    
     self.zoomingHeaderView.frame = frame;
+    
+//    NSLog(@"%@", NSStringFromCGRect(frame));
+    
+    info.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(frame.size.height, 0, 0, 0);
 
 }
 
