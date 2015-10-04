@@ -81,7 +81,8 @@
     if (info.scrollView.contentOffset.y != self.zoomingHeaderView.frame.origin.y && info.newContentOffset.y < originY && info.newContentOffset.y < 0) {
         
         frame.origin.y = info.scrollView.contentOffset.y;
-        frame.size.height = -frame.origin.y;
+#warning 稍等，哥哥要出去玩了，回来再搞，先这样了~
+        frame.size.height = -frame.origin.y + self.zoomingHeaderView.frameOffset;
         frame.size.width = frame.size.height / originHeight * originWidth;
         frame.origin.x =  originWidth - frame.size.width;
         

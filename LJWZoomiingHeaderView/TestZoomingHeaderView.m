@@ -63,7 +63,7 @@
 
 - (CGFloat)frameOffset
 {
-    return 0.f;
+    return 50.f;
 }
 
 @end
