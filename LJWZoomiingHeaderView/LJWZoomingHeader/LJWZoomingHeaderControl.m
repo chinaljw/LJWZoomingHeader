@@ -23,35 +23,19 @@
 - (void)didOffsetChangedWithScrollViewScrollInfo:(UIScrollViewScrollInfo *)info
 {
     
-//    NSLog(@"%lf", info.scrollView.contentOffset.y);
+    [self resetHeightAndYWithInfo:info];
     
-    //是否往上滑动
-//    if (info.scrollView.contentOffset.y > - self.zoomingHeaderView.originFrame.size.height) {
-//        //是否和原始大小一样，不一样重置
-//        if (self.zoomingHeaderView.frame.size.height != self.zoomingHeaderView.originFrame.size.height) {
-////            [UIView animateWithDuration:.1f animations:^{
-//                self.zoomingHeaderView.frame = self.zoomingHeaderView.originFrame;
-//                [self moveToHCenterWithInfo:info];
-//                [self resetSubviews];
-////            } completion:^(BOOL finished) {
-////                
-////            }];
-//        }
-//        return;
-//    }
+    [self moveToHCenterWithInfo:info];
     
+    [self resetSubviews];
+    
+    //要放后面，不然会有惊喜~~~~
     if ([self.zoomingHeaderView respondsToSelector:@selector(maxHeight)]) {
         CGFloat maxHeight = [self.zoomingHeaderView maxHeight];
         if (info.newContentOffset.y < - maxHeight) {
             info.scrollView.contentOffset = CGPointMake(0, -maxHeight);
         }
     }
-    
-    [self resetHeightAndYWithInfo:info];
-    
-    [self moveToHCenterWithInfo:info];
-    
-    [self resetSubviews];
 
 }
 
@@ -103,10 +87,7 @@
         
     }
 
-    
     self.zoomingHeaderView.frame = frame;
-    
-//    NSLog(@"%@", NSStringFromCGRect(frame));
     
     info.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(frame.size.height, 0, 0, 0);
 

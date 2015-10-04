@@ -25,11 +25,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.automaticallyAdjustsScrollViewInsets = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self testTableView];
+//    [self testTableView];
     
-//    [self testScrollView];
+    [self testScrollView];
     
 }
 
@@ -38,18 +38,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    
-    
-}
-
 #pragma mark - Setter & Getter 
 - (UIScrollView *)scrollView
 {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+        
+        CGRect bounds = self.view.bounds;
+        bounds.origin.y += 64.f;
+        
+        _scrollView = [[UIScrollView alloc] initWithFrame:bounds];
         _scrollView.backgroundColor = [UIColor blueColor];
         
     }
