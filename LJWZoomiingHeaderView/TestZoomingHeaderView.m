@@ -48,7 +48,8 @@
     return _imageView;
 }
 
-#pragma mark Protocol
+#pragma mark Protocol 这里都是可选的
+//在这里设置子视图的frame让他们能跟着一块儿变大变小，粗粗细细，伸伸缩缩~
 - (void)resetSubViewsFrame
 {
     self.centerView.frame = CGRectMake(0, 0, self.frame.size.width / 3, self.frame.size.height / 3);
@@ -56,11 +57,13 @@
     self.imageView.frame = self.bounds;
 }
 
-//- (CGFloat)maxHeight
-//{
-//    return 450.f;
-//}
+//header最大的高度
+- (CGFloat)maxHeight
+{
+    return 450.f;
+}
 
+//header往下的偏移量，然而不是很完美。
 //- (CGFloat)frameOffset
 //{
 //    return 50.f;

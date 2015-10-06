@@ -103,13 +103,13 @@
 			isa = PBXGroup;
 			children = (
 				722AF15F1BBE5C030016090A /* LJWZoomingHeader */,
+				722AF16E1BBE64F00016090A /* TestZoomingHeaderView.h */,
+				722AF16F1BBE64F00016090A /* TestZoomingHeaderView.m */,
 				722AF15D1BBE509E0016090A /* 7494e68agb7a98471e34f&690.jpg */,
 				722AF1341BBE3F760016090A /* AppDelegate.h */,
 				722AF1351BBE3F760016090A /* AppDelegate.m */,
 				722AF1371BBE3F760016090A /* ViewController.h */,
 				722AF1381BBE3F760016090A /* ViewController.m */,
-				722AF16E1BBE64F00016090A /* TestZoomingHeaderView.h */,
-				722AF16F1BBE64F00016090A /* TestZoomingHeaderView.m */,
 				722AF13A1BBE3F760016090A /* Main.storyboard */,
 				722AF13D1BBE3F760016090A /* Images.xcassets */,
 				722AF13F1BBE3F760016090A /* LaunchScreen.xib */,
