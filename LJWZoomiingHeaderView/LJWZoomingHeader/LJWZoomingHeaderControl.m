@@ -44,7 +44,9 @@
     
     //纯粹为了适配automaticallyAdjustsScrollViewInsets = YES的情况
     resetCount ++;
-    if (info.scrollView.belongController.automaticallyAdjustsScrollViewInsets && resetCount == 3) {
+    if (info.scrollView.belongController.automaticallyAdjustsScrollViewInsets &&
+        resetCount == 3)
+    {
         self.zoomingHeaderView.frame = self.zoomingHeaderView.originFrame;
         return;
     }
@@ -55,7 +57,9 @@
     
     CGFloat frameOffset = [self.zoomingHeaderView respondsToSelector:@selector(frameOffset)] ? self.zoomingHeaderView.frameOffset : 0.f;
     
-    if (frameOffset > 0.f && - info.scrollView.contentOffset.y < self.zoomingHeaderView.frame.size.height) {
+    if (frameOffset > 0.f &&
+        - info.scrollView.contentOffset.y < self.zoomingHeaderView.frame.size.height)
+    {
         
         change *= 10;
         
@@ -72,8 +76,8 @@
     
     
     //是否往上滑
-    if (info.scrollDirection == UIScrollViewScrollDirectionToTop) {
-        
+    if (info.scrollDirection == UIScrollViewScrollDirectionToTop)
+    {
         //如果算出来的大小比原始的大小小，则重置成原始的大小
         frame.origin.y = frame.origin.y >  originY ? originY : frame.origin.y;
         frame.size.height = frame.size.height < originHeight ? originHeight : frame.size.height;
@@ -81,26 +85,29 @@
     }
     
     //判断是否往下滑，且header是否不在屏幕中
-    if (info.scrollDirection == UIScrollViewScrollDirectionToBottom && info.newContentOffset.y > originY) {
+    if (info.scrollDirection == UIScrollViewScrollDirectionToBottom &&
+        info.newContentOffset.y > originY)
+    {
         frame.origin.y = frame.origin.y <  originY ? originY : frame.origin.y;
         frame.size.height = frame.size.height > originHeight ? originHeight : frame.size.height;
         frame.size.width = frame.size.width > originWidth ? originWidth : frame.size.width;
     }
     
     //当Header没有完全消失时，修正frame
-    if (info.scrollView.contentOffset.y != self.zoomingHeaderView.frame.origin.y + frameOffset && info.newContentOffset.y < originY && info.newContentOffset.y < 0) {
-        
+    if (info.scrollView.contentOffset.y != self.zoomingHeaderView.frame.origin.y + frameOffset &&
+        info.newContentOffset.y < originY &&
+        info.newContentOffset.y < 0)
+    {
         frame.origin.y = info.scrollView.contentOffset.y;
 //#warning 稍等，哥哥要出去玩了，回来再搞，先这样了~
         frame.size.height = -frame.origin.y + frameOffset;
         frame.size.width = frame.size.height / originHeight * originWidth;
         frame.origin.x =  originWidth - frame.size.width;
-        
     }
 
     self.zoomingHeaderView.frame = frame;
     
-    info.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(frame.size.height - self.zoomingHeaderView.frameOffset, 0, 0, 0);
+    info.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(frame.size.height - frameOffset, 0, 0, 0);
 
 }
 

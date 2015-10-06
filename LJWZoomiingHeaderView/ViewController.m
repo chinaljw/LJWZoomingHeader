@@ -57,6 +57,7 @@
 #pragma mark - Test
 - (TestZoomingHeaderView *)testHeaderView
 {
+    //给出合适的高宽，乱来的话我也不知道会怎样~
     TestZoomingHeaderView *headerView = [[TestZoomingHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300)];
     headerView.backgroundColor = [UIColor orangeColor];
 

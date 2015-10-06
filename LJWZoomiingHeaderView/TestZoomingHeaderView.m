@@ -61,9 +61,9 @@
 //    return 450.f;
 //}
 
-- (CGFloat)frameOffset
-{
-    return 50.f;
-}
+//- (CGFloat)frameOffset
+//{
+//    return 50.f;
+//}
 
 @end

@@ -149,6 +149,7 @@
 {
     CGFloat topInset = - self.zoomingHeaderView.originFrame.origin.y;
     
+    //调整inset，然而并没有什么卵用。
     if (self.belongController.automaticallyAdjustsScrollViewInsets) {
         topInset -= 64.f;
     }
