@@ -43,6 +43,7 @@
 {
     
     //纯粹为了适配automaticallyAdjustsScrollViewInsets = YES的情况
+    //然而，并没有什么卵用~
     resetCount ++;
     if (info.scrollView.belongController.automaticallyAdjustsScrollViewInsets &&
         resetCount == 3)
@@ -57,6 +58,7 @@
     
     CGFloat frameOffset = [self.zoomingHeaderView respondsToSelector:@selector(frameOffset)] ? self.zoomingHeaderView.frameOffset : 0.f;
     
+    //然而，并没有什么卵用~
     if (frameOffset > 0.f &&
         - info.scrollView.contentOffset.y < self.zoomingHeaderView.frame.size.height)
     {

@@ -32,6 +32,8 @@
     
 //    [self testScrollView];
     
+//    [self.tableView removeZoomingHeaderView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
