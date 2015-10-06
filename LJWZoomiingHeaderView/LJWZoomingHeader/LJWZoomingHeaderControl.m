@@ -50,7 +50,17 @@
     }
     
     CGRect frame = self.zoomingHeaderView.frame;
+    
     CGFloat change = - (info.newContentOffset.y - info.oldContentOffset.y);
+    
+    CGFloat frameOffset = [self.zoomingHeaderView respondsToSelector:@selector(frameOffset)] ? self.zoomingHeaderView.frameOffset : 0.f;
+    
+    if (frameOffset > 0.f && - info.scrollView.contentOffset.y < self.zoomingHeaderView.frame.size.height) {
+        
+        change *= 10;
+        
+    }
+    
     frame.size.height += change;
     frame.size.width += change;
     
@@ -78,11 +88,11 @@
     }
     
     //当Header没有完全消失时，修正frame
-    if (info.scrollView.contentOffset.y != self.zoomingHeaderView.frame.origin.y && info.newContentOffset.y < originY && info.newContentOffset.y < 0) {
+    if (info.scrollView.contentOffset.y != self.zoomingHeaderView.frame.origin.y + frameOffset && info.newContentOffset.y < originY && info.newContentOffset.y < 0) {
         
         frame.origin.y = info.scrollView.contentOffset.y;
-#warning 稍等，哥哥要出去玩了，回来再搞，先这样了~
-        frame.size.height = -frame.origin.y + self.zoomingHeaderView.frameOffset;
+//#warning 稍等，哥哥要出去玩了，回来再搞，先这样了~
+        frame.size.height = -frame.origin.y + frameOffset;
         frame.size.width = frame.size.height / originHeight * originWidth;
         frame.origin.x =  originWidth - frame.size.width;
         
@@ -90,7 +100,7 @@
 
     self.zoomingHeaderView.frame = frame;
     
-    info.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(frame.size.height, 0, 0, 0);
+    info.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(frame.size.height - self.zoomingHeaderView.frameOffset, 0, 0, 0);
 
 }
 

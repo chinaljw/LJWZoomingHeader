@@ -25,11 +25,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    //墙裂建议把这个设成NO
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-//    [self testTableView];
+    [self testTableView];
     
-    [self testScrollView];
+//    [self testScrollView];
     
 }
 
