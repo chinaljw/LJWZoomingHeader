@@ -58,15 +58,20 @@
 }
 
 //header最大的高度
-- (CGFloat)maxHeight
+- (CGFloat)maxmumHeight
 {
     return 450.f;
 }
 
-//header往下的偏移量，然而不是很完美。
-//- (CGFloat)frameOffset
-//{
-//    return 50.f;
-//}
+//header往下的偏移量，然而不是很完美，然而现在应该可以用了~。
+- (CGFloat)frameOffset
+{
+    return 50.f;
+}
+
+- (CGFloat)frameOffsetTrainsitionRate
+{
+    return 0.5;
+}
 
 @end

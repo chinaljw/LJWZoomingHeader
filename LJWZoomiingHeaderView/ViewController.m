@@ -78,13 +78,19 @@
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+//    headerView.backgroundColor = [UIColor orangeColor];
+//    
+//    self.tableView.tableHeaderView = headerView;
+    
     [self.tableView addZoomingHeaderView:[self testHeaderView]];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

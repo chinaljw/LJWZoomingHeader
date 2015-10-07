@@ -50,7 +50,11 @@
 
 - (void)ljw_contentOffsetObserver_dealloc
 {
-    [self removeZoomingHeaderView];
+    
+    //给tableview加上headerview后再设置self.contentInsets就会野指针异常，不解。所以dealloc里就不设置了
+    [self.zoomingHeaderView removeFromSuperview];
+    self.zoomingHeaderView = nil;
+    [self removeContentOffsetObserver];
     
     [self ljw_contentOffsetObserver_dealloc];
 }
@@ -163,7 +167,7 @@
     
     UIEdgeInsets insets = self.contentInset;
     insets.top = 0.f;
-    self.contentInset = insets;
+    [self setContentInset:insets];
     self.scrollIndicatorInsets = insets;
     
     [self removeContentOffsetObserver];
@@ -206,6 +210,8 @@
     self.contentInset = UIEdgeInsetsMake(topInset, 0, 0, 0);
     
     self.scrollIndicatorInsets = self.contentInset;
+    
+    self.contentOffset = CGPointMake(self.contentOffset.x, -self.contentInset.top);
 }
 
 - (void)addControl
