@@ -25,11 +25,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.automaticallyAdjustsScrollViewInsets = YES;
+    //墙裂建议把这个设成NO
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self testTableView];
     
 //    [self testScrollView];
+    
+//    [self.tableView removeZoomingHeaderView];
     
 }
 
@@ -38,18 +41,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    
-    
-}
-
 #pragma mark - Setter & Getter 
 - (UIScrollView *)scrollView
 {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+        
+        CGRect bounds = self.view.bounds;
+        bounds.origin.y += 64.f;
+        
+        _scrollView = [[UIScrollView alloc] initWithFrame:bounds];
         _scrollView.backgroundColor = [UIColor blueColor];
         
     }
@@ -59,7 +59,8 @@
 #pragma mark - Test
 - (TestZoomingHeaderView *)testHeaderView
 {
-    TestZoomingHeaderView *headerView = [[TestZoomingHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300)];
+    //给出合适的高宽，乱来的话我也不知道会怎样~
+    TestZoomingHeaderView *headerView = [[TestZoomingHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300.f)];
     headerView.backgroundColor = [UIColor orangeColor];
 
     return headerView;
@@ -77,13 +78,19 @@
 {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+//    headerView.backgroundColor = [UIColor orangeColor];
+//    
+//    self.tableView.tableHeaderView = headerView;
+    
     [self.tableView addZoomingHeaderView:[self testHeaderView]];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

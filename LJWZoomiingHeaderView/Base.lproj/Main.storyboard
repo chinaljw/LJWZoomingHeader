@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tTt-6G-xan">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tTt-6G-xan">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -12,6 +13,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4fa-il-UKM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="GTz-Zf-7y8" kind="relationship" relationship="rootViewController" id="uUd-gx-1Z8"/>
@@ -32,12 +34,13 @@
                     <view key="view" contentMode="scaleToFill" id="sGT-mW-gmv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="0Yn-wR-kSL">
                         <barButtonItem key="rightBarButtonItem" title="next" id="Nd0-xt-Wpp">
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" id="8ym-yE-CyA"/>
+                                <segue destination="vXZ-lx-hvc" kind="show" id="1od-uL-J2q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -49,7 +52,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -60,24 +63,29 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kLK-Yd-6dd">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="testcell" id="yHg-L6-f2k">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                        <rect key="frame" x="0.0" y="22" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yHg-L6-f2k" id="oBg-uq-fkG">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kLK-Yd-6dd" secondAttribute="bottom" id="8YB-HX-GgB"/>
-                            <constraint firstItem="kLK-Yd-6dd" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="PNW-43-sfx"/>
-                            <constraint firstItem="kLK-Yd-6dd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="eTL-26-fFE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kLK-Yd-6dd" secondAttribute="trailing" constant="-16" id="h8D-ob-ygH"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kLK-Yd-6dd" secondAttribute="bottom" id="VBc-fV-HCI"/>
+                            <constraint firstItem="kLK-Yd-6dd" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="hFx-Pt-DND"/>
+                            <constraint firstItem="kLK-Yd-6dd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="isG-6L-hwy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kLK-Yd-6dd" secondAttribute="trailing" constant="-20" id="t1w-Lh-9Tx"/>
                         </constraints>
                     </view>
                     <connections>

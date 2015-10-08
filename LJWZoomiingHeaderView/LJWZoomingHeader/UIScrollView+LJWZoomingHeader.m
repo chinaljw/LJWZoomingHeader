@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) LJWZoomingHeaderControl *control;
 
+@property (nonatomic, strong) NSMutableSet *keypathsBeingObserved;
+
 @end
 
 @implementation UIScrollView (LJWZoomingHeader)
@@ -34,13 +36,25 @@
 //        SEL layoutSubviewsNewSEL = @selector(ljw_contentOffsetObserver_layoutSubViews);
 //        [self swizzlOriginSEL:layoutSubviewsOriginSEL newSEL:layoutSubviewsNewSEL];
         
+        SEL addOriginSEL = @selector(addObserver:forKeyPath:options:context:);
+        SEL addNewSEL = @selector(ljw_contentOffsetObserver_addObserver:forKeyPath:options:context:);
+        [self swizzlOriginSEL:addOriginSEL newSEL:addNewSEL];
+        
+        SEL removeOriginSEL = @selector(removeObserver:forKeyPath:);
+        SEL removeNewSEL = @selector(ljw_contentOffsetObserver_removeObserver:forKeyPath:);
+        [self swizzlOriginSEL:removeOriginSEL newSEL:removeNewSEL];
+        
     });
     
 }
 
 - (void)ljw_contentOffsetObserver_dealloc
 {
-    [self removeZoomingHeaderView];
+    
+    //给tableview加上headerview后再设置self.contentInsets就会野指针异常，不解。所以dealloc里就不设置了
+    [self.zoomingHeaderView removeFromSuperview];
+    self.zoomingHeaderView = nil;
+    [self removeContentOffsetObserver];
     
     [self ljw_contentOffsetObserver_dealloc];
 }
@@ -52,6 +66,20 @@
 //    
 //    [self ljw_contentOffsetObserver_layoutSubViews];
 //}
+
+- (void)ljw_contentOffsetObserver_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
+{
+    [self ljw_contentOffsetObserver_addObserver:observer forKeyPath:keyPath options:options context:context];
+    
+    [self.keypathsBeingObserved addObject:keyPath];
+}
+
+- (void)ljw_contentOffsetObserver_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath
+{
+    [self ljw_contentOffsetObserver_removeObserver:observer forKeyPath:keyPath];
+    
+    [self.keypathsBeingObserved removeObject:keyPath];
+}
 
 + (void)swizzlOriginSEL:(SEL)originSEL newSEL:(SEL)newSEL
 {
@@ -98,6 +126,20 @@
     return objc_getAssociatedObject(self, _cmd);
 }
 
+- (NSMutableArray *)keypathsBeingObserved
+{
+    if (!objc_getAssociatedObject(self, _cmd)) {
+        self.keypathsBeingObserved = [[NSMutableSet alloc] init];
+    }
+
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setKeypathsBeingObserved:(NSMutableArray *)keypathsBeingObserved
+{
+    objc_setAssociatedObject(self, @selector(keypathsBeingObserved), keypathsBeingObserved, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 #pragma mark - Control
 - (void)addZoomingHeaderView:(UIView<LJWZoomingHeaderViewProtocol> *)zoomingHeaderView
 {
@@ -122,7 +164,18 @@
 {
     [self.zoomingHeaderView removeFromSuperview];
     self.zoomingHeaderView = nil;
+    
+    UIEdgeInsets insets = self.contentInset;
+    insets.top = 0.f;
+    [self setContentInset:insets];
+    self.scrollIndicatorInsets = insets;
+    
     [self removeContentOffsetObserver];
+}
+
+- (BOOL)isRegistedObserverForKeypath:(NSString *)keypath
+{
+    return [self.keypathsBeingObserved containsObject:keypath];
 }
 
 #pragma mark - Helper
@@ -149,6 +202,7 @@
 {
     CGFloat topInset = - self.zoomingHeaderView.originFrame.origin.y;
     
+    //调整inset，然而并没有什么卵用。
     if (self.belongController.automaticallyAdjustsScrollViewInsets) {
         topInset -= 64.f;
     }
@@ -156,6 +210,8 @@
     self.contentInset = UIEdgeInsetsMake(topInset, 0, 0, 0);
     
     self.scrollIndicatorInsets = self.contentInset;
+    
+    self.contentOffset = CGPointMake(self.contentOffset.x, -self.contentInset.top);
 }
 
 - (void)addControl
