@@ -71,7 +71,7 @@
 
 - (CGFloat)frameOffsetTrainsitionRate
 {
-    return 0.5;
+    return 0.5f;
 }
 
 @end
