@@ -4,6 +4,8 @@
 # 效果图
 ![Alt Text](https://github.com/chinaljw/MyFileRepository/blob/master/Gif/LJWZoomiingHeaderGif.gif)
 
+![Alt Text](https://github.com/chinaljw/MyFileRepository/blob/master/Gif/LJWZoomiingHeaderViewVideoGif-2.gif)
+
 # 墙裂建议
 把Viewcontroller的此属性设成NO
 
