@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 #import "LJWZoomingHeaderControl.h"
 #import "UIView+BelongController.h"
+#import "UIScrollView+ContentOffsetObserver.h"
 
 @interface UIScrollView () <UIScrollViewContentOffsetObserverDelegate>
 
@@ -31,18 +32,6 @@
         SEL deallocOriginSEL = NSSelectorFromString(@"dealloc");
         SEL deallocNewSEL = @selector(ljw_contentOffsetObserver_dealloc);
         [self swizzlOriginSEL:deallocOriginSEL newSEL:deallocNewSEL];
-        
-//        SEL layoutSubviewsOriginSEL = @selector(layoutSubviews);
-//        SEL layoutSubviewsNewSEL = @selector(ljw_contentOffsetObserver_layoutSubViews);
-//        [self swizzlOriginSEL:layoutSubviewsOriginSEL newSEL:layoutSubviewsNewSEL];
-        
-        SEL addOriginSEL = @selector(addObserver:forKeyPath:options:context:);
-        SEL addNewSEL = @selector(ljw_contentOffsetObserver_addObserver:forKeyPath:options:context:);
-        [self swizzlOriginSEL:addOriginSEL newSEL:addNewSEL];
-        
-        SEL removeOriginSEL = @selector(removeObserver:forKeyPath:);
-        SEL removeNewSEL = @selector(ljw_contentOffsetObserver_removeObserver:forKeyPath:);
-        [self swizzlOriginSEL:removeOriginSEL newSEL:removeNewSEL];
         
     });
     
@@ -66,20 +55,6 @@
 //    
 //    [self ljw_contentOffsetObserver_layoutSubViews];
 //}
-
-- (void)ljw_contentOffsetObserver_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
-{
-    [self ljw_contentOffsetObserver_addObserver:observer forKeyPath:keyPath options:options context:context];
-    
-    [self.keypathsBeingObserved addObject:keyPath];
-}
-
-- (void)ljw_contentOffsetObserver_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath
-{
-    [self ljw_contentOffsetObserver_removeObserver:observer forKeyPath:keyPath];
-    
-    [self.keypathsBeingObserved removeObject:keyPath];
-}
 
 + (void)swizzlOriginSEL:(SEL)originSEL newSEL:(SEL)newSEL
 {
@@ -173,11 +148,6 @@
     [self removeContentOffsetObserver];
 }
 
-- (BOOL)isRegistedObserverForKeypath:(NSString *)keypath
-{
-    return [self.keypathsBeingObserved containsObject:keypath];
-}
-
 #pragma mark - Helper
 - (void)resetZoomingHeaderViewFrameAndSelfInset
 {
@@ -224,15 +194,15 @@
 #pragma mark - Observer
 - (void)addContentOffsetObserver
 {
-    self.contentOffsetObserver = [[UIScrollViewContentOffsetObserver alloc] init];
-    self.contentOffsetObserver.delegate = self.control;
+    UIScrollViewContentOffsetObserver *observer = [[UIScrollViewContentOffsetObserver alloc] init];
+    observer.delegate = self.control;
     
-    [self.contentOffsetObserver bindingScrollView:self];
+    [self addContentOffsetObserver:observer];
 }
 
 - (void)removeContentOffsetObserver
 {
-    [self.contentOffsetObserver releaseBindingScrollView:self];
+    [self removeContentOffsetObserver:self.contentOffsetObserver];
 }
 
 @end

@@ -79,10 +79,10 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-//    headerView.backgroundColor = [UIColor orangeColor];
-//    
-//    self.tableView.tableHeaderView = headerView;
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    headerView.backgroundColor = [UIColor orangeColor];
+    
+    self.tableView.tableHeaderView = headerView;
     
     [self.tableView addZoomingHeaderView:[self testHeaderView]];
 }
