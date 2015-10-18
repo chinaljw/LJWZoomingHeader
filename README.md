@@ -10,3 +10,6 @@
 把Viewcontroller的此属性设成NO
 
     self.automaticallyAdjustsScrollViewInsets = NO;
+
+#CocoaPods
+pod 'LJWZoomingHeader'

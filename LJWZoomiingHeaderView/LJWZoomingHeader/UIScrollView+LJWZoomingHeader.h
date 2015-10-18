@@ -20,6 +20,4 @@
 
 - (void)removeZoomingHeaderView;
 
-- (BOOL)isRegistedObserverForKeypath:(NSString *)keypath;
-
 @end
