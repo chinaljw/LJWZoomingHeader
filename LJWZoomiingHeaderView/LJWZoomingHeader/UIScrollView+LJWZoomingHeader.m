@@ -8,9 +8,7 @@
 
 #import "UIScrollView+LJWZoomingHeader.h"
 #import <objc/runtime.h>
-#import "LJWZoomingHeaderControl.h"
-#import "UIView+BelongController.h"
-#import "UIScrollView+ContentOffsetObserver.h"
+
 
 @interface UIScrollView () <UIScrollViewContentOffsetObserverDelegate>
 

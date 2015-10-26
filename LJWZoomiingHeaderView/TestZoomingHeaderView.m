@@ -79,7 +79,7 @@
  *
  *  @return 是否
  */
-- (BOOL)shouldStubbom
+- (BOOL)isStubborn
 {
     return YES;
 }
@@ -89,9 +89,9 @@
  *
  *  @return 要固定的配置信息
  */
-- (StubbomInfo)stubbomInfo
+- (StubbornInfo)stubbornInfo
 {
-    StubbomInfo info = {200.f,150.f, StubbomTypeUp};
+    StubbornInfo info = {0.f,150.f, StubbornTypeUp, HeaderViewHierarchyFront};
     return info;
 }
 

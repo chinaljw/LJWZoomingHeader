@@ -12,6 +12,12 @@
 /** 默认header偏移变化速率 */
 static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
 
+#define CanPerformShouldStubborn ([self.zoomingHeaderView respondsToSelector:@selector(isStubborn)])
+#define CanPerformStubbornInfo ([self.zoomingHeaderView respondsToSelector:@selector(stubbornInfo)])
+#define IsStubborn (CanPerformShouldStubborn && self.zoomingHeaderView.isStubborn)
+#define IsStubbornAndHasStubbornInfo (IsStubborn && CanPerformStubbornInfo)
+
+
 @interface LJWZoomingHeaderControl ()
 {
     //resetFrame的次数
@@ -27,9 +33,24 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
 {
     
     //固定
-    if ([self.zoomingHeaderView respondsToSelector:@selector(shouldStubbom)] && self.zoomingHeaderView.shouldStubbom) {
-        [self stubbomWithScrollInfo:info];
-        return;
+    if (IsStubbornAndHasStubbornInfo) {
+        StubbornInfo stbInfo = self.zoomingHeaderView.stubbornInfo;
+        
+        switch (stbInfo.hierarchy) {
+            case HeaderViewHierarchyBackground:
+            {
+                [info.scrollView sendSubviewToBack:self.zoomingHeaderView];
+            }
+                break;
+            case HeaderViewHierarchyFront:
+            {
+                [info.scrollView bringSubviewToFront:self.zoomingHeaderView];
+            }
+                break;
+            default:
+                break;
+        }
+
     }
     
     [self resetHeightAndYWithInfo:info];
@@ -77,7 +98,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     frameOffsetTrainsitionRate = frameOffsetTrainsitionRate > 1.f ? 1.f : frameOffsetTrainsitionRate;
     frameOffsetTrainsitionRate = frameOffsetTrainsitionRate < 0.f ? 0.f : frameOffsetTrainsitionRate;
     
-    //然而，并没有什么卵用~先在有卵用了~
+    //然而，并没有什么卵用~现在有卵用了~
     if (frameOffset > 0.f &&
         - info.scrollView.contentOffset.y < self.zoomingHeaderView.frame.size.height)
     {
@@ -96,9 +117,29 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     CGFloat originY = self.zoomingHeaderView.originFrame.origin.y;
     CGFloat originWidth = self.zoomingHeaderView.originFrame.size.width;
     
+    StubbornInfo stubbornInfo = DontStubbornInfo;
+    
+    if (IsStubbornAndHasStubbornInfo) {
+        stubbornInfo = self.zoomingHeaderView.stubbornInfo;
+    }
+    
     //是否往上滑
     if (info.scrollDirection == UIScrollViewScrollDirectionToTop)
     {
+        //如果固定配置信息不等于不固定且类型是往上滑时固定； 且需要固定了~
+        if (!stubbornInfoIsEqualToDontStubborn(stubbornInfo) && stubbornInfo.type == StubbornTypeUp && info.scrollView.contentOffset.y >= - (originHeight - stubbornInfo.y_up)) {
+            CGRect stubbornFrame = self.zoomingHeaderView.frame;
+            stubbornFrame.origin.y = info.scrollView.contentOffset.y - stubbornInfo.y_up;
+            stubbornFrame.origin.x = 0.f;
+            
+            //修正size
+            stubbornFrame.size.width = stubbornFrame.size.width > originWidth ? originWidth : stubbornFrame.size.width;
+            stubbornFrame.size.height = stubbornFrame.size.height > originHeight ? originHeight : stubbornFrame.size.height;
+            
+            self.zoomingHeaderView.frame = stubbornFrame;
+            return;
+        }
+        
         //如果算出来的大小比原始的大小小，则重置成原始的大小
         frame.origin.y = frame.origin.y >  originY ? originY : frame.origin.y;
         frame.size.height = frame.size.height < originHeight ? originHeight : frame.size.height;
@@ -109,6 +150,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     if (info.scrollDirection == UIScrollViewScrollDirectionToBottom &&
         info.newContentOffset.y > originY)
     {
+        
         frame.origin.y = frame.origin.y <  originY ? originY : frame.origin.y;
         frame.size.height = frame.size.height > originHeight ? originHeight : frame.size.height;
         frame.size.width = frame.size.width > originWidth ? originWidth : frame.size.width;
@@ -149,42 +191,6 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     if ([self.zoomingHeaderView respondsToSelector:@selector(resetSubViewsFrame)]) {
         [self.zoomingHeaderView resetSubViewsFrame];
     }
-}
-
-- (void)stubbomWithScrollInfo:(UIScrollViewScrollInfo *)scrollInfo
-{
-        if ([self.zoomingHeaderView respondsToSelector:@selector(stubbomInfo)]) {
-            
-            StubbomInfo stubbomInfo = self.zoomingHeaderView.stubbomInfo;
-            
-            switch (stubbomInfo.type) {
-                case StubbomTypeUp:
-                {
-                    if (scrollInfo.scrollView.contentOffset.y >= - (self.zoomingHeaderView.originFrame.size.height - stubbomInfo.y_up)) {
-                        CGRect frame = self.zoomingHeaderView.frame;
-                        frame.origin.y = scrollInfo.scrollView.contentOffset.y - stubbomInfo.y_up;
-                        frame.origin.x = 0.f;
-                        self.zoomingHeaderView.frame = frame;
-                        [self moveToHCenterWithInfo:scrollInfo];
-                    }
-                }
-                    break;
-                case StubbomTypeDown:
-                {
-                    
-                }
-                    break;
-                case StubbomTypeUpAndDown:
-                {
-                    
-                }
-                    break;
-                    
-                default:
-                    break;
-            }
-            
-        }
 }
 
 @end

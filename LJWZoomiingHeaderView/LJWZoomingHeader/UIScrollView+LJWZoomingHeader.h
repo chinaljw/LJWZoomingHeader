@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIScrollViewContentOffsetObserver.h"
-#import "LJWZoomingHeaderViewProtocol.h"
+#import "LJWZoomingHeaderControl.h"
+#import "UIView+BelongController.h"
+#import "UIScrollView+ContentOffsetObserver.h"
 
 @interface UIScrollView (LJWZoomingHeader)
 

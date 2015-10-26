@@ -9,23 +9,44 @@
 #import <Foundation/Foundation.h>
 
 
-typedef NS_ENUM(NSInteger, StubbomType)
+typedef NS_ENUM(NSInteger, StubbornType)
 {
-    StubbomTypeUp = 0,
-    StubbomTypeDown = 1,
-    StubbomTypeUpAndDown = 3,
+    StubbornTypeDontStubborn = 0,
+    StubbornTypeUp = 1,
+    StubbornTypeDown = 2,
+    StubbornTypeUpAndDown = 3,
 };
 
-struct StubbomInfo
+typedef NS_ENUM(NSInteger, HeaderViewHierarchy)
+{
+    HeaderViewHierarchyInTheSky = 0,
+    HeaderViewHierarchyFront = 1,
+    HeaderViewHierarchyBackground = 2,
+};
+
+struct StubbornInfo
 {
     CGFloat y_up;
     CGFloat y_down;
-//    CGFloat duration;
-    StubbomType type;
+    StubbornType type;
+    HeaderViewHierarchy hierarchy;
 };
 
+//不固定配置信息
+static const struct StubbornInfo DontStubbornInfo = {0,0,StubbornTypeDontStubborn,HeaderViewHierarchyInTheSky};
+
+static BOOL compareStubbornInfoIsEqual(struct StubbornInfo info_1,struct StubbornInfo info_2)
+{
+    return info_1.y_up == info_2.y_up && info_1.y_down == info_2.y_down && info_1.type == info_2.type && info_1.hierarchy == info_2.hierarchy;
+}
+
+static BOOL stubbornInfoIsEqualToDontStubborn(struct StubbornInfo info)
+{
+    return compareStubbornInfoIsEqual(info, DontStubbornInfo);
+}
+
 //要固定的位置
-typedef struct StubbomInfo StubbomInfo;
+typedef struct StubbornInfo StubbornInfo;
 
 @protocol LJWZoomingHeaderViewProtocol <NSObject>
 
@@ -64,13 +85,13 @@ typedef struct StubbomInfo StubbomInfo;
  *
  *  @return 是否
  */
-- (BOOL)shouldStubbom;
+- (BOOL)isStubborn;
 
 /**
  *  要固定的配置信息
  *
  *  @return 要固定的配置信息
  */
-- (StubbomInfo)stubbomInfo;
+- (StubbornInfo)stubbornInfo;
 
 @end
