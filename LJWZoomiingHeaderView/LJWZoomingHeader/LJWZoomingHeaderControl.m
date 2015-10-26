@@ -26,6 +26,12 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
 - (void)didOffsetChangedWithScrollViewScrollInfo:(UIScrollViewScrollInfo *)info
 {
     
+    //固定
+    if ([self.zoomingHeaderView respondsToSelector:@selector(shouldStubbom)] && self.zoomingHeaderView.shouldStubbom) {
+        [self stubbomWithScrollInfo:info];
+        return;
+    }
+    
     [self resetHeightAndYWithInfo:info];
     
     [self moveToHCenterWithInfo:info];
@@ -39,6 +45,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
         if (info.newContentOffset.y < - maxHeight) {
             info.scrollView.contentOffset = CGPointMake(0, -maxHeight);
         }
+        return;
     }
 
 }
@@ -88,7 +95,6 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     CGFloat originHeight = self.zoomingHeaderView.originFrame.size.height;
     CGFloat originY = self.zoomingHeaderView.originFrame.origin.y;
     CGFloat originWidth = self.zoomingHeaderView.originFrame.size.width;
-    
     
     //是否往上滑
     if (info.scrollDirection == UIScrollViewScrollDirectionToTop)
@@ -143,6 +149,42 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     if ([self.zoomingHeaderView respondsToSelector:@selector(resetSubViewsFrame)]) {
         [self.zoomingHeaderView resetSubViewsFrame];
     }
+}
+
+- (void)stubbomWithScrollInfo:(UIScrollViewScrollInfo *)scrollInfo
+{
+        if ([self.zoomingHeaderView respondsToSelector:@selector(stubbomInfo)]) {
+            
+            StubbomInfo stubbomInfo = self.zoomingHeaderView.stubbomInfo;
+            
+            switch (stubbomInfo.type) {
+                case StubbomTypeUp:
+                {
+                    if (scrollInfo.scrollView.contentOffset.y >= - (self.zoomingHeaderView.originFrame.size.height - stubbomInfo.y_up)) {
+                        CGRect frame = self.zoomingHeaderView.frame;
+                        frame.origin.y = scrollInfo.scrollView.contentOffset.y - stubbomInfo.y_up;
+                        frame.origin.x = 0.f;
+                        self.zoomingHeaderView.frame = frame;
+                        [self moveToHCenterWithInfo:scrollInfo];
+                    }
+                }
+                    break;
+                case StubbomTypeDown:
+                {
+                    
+                }
+                    break;
+                case StubbomTypeUpAndDown:
+                {
+                    
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+        }
 }
 
 @end

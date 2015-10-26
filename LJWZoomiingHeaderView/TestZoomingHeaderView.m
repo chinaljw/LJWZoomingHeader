@@ -74,4 +74,25 @@
     return 0.5f;
 }
 
+/**
+ *  是否需要固定
+ *
+ *  @return 是否
+ */
+- (BOOL)shouldStubbom
+{
+    return YES;
+}
+
+/**
+ *  要固定的配置信息
+ *
+ *  @return 要固定的配置信息
+ */
+- (StubbomInfo)stubbomInfo
+{
+    StubbomInfo info = {200.f,150.f, StubbomTypeUp};
+    return info;
+}
+
 @end

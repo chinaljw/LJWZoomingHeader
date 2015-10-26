@@ -8,6 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef NS_ENUM(NSInteger, StubbomType)
+{
+    StubbomTypeUp = 0,
+    StubbomTypeDown = 1,
+    StubbomTypeUpAndDown = 3,
+};
+
+struct StubbomInfo
+{
+    CGFloat y_up;
+    CGFloat y_down;
+//    CGFloat duration;
+    StubbomType type;
+};
+
+//要固定的位置
+typedef struct StubbomInfo StubbomInfo;
+
 @protocol LJWZoomingHeaderViewProtocol <NSObject>
 
 /*
@@ -39,5 +58,19 @@
  请不要给大于1.f或小于0.f的值，给了也没用😏
  */
 - (CGFloat)frameOffsetTrainsitionRate;
+
+/**
+ *  是否需要固定
+ *
+ *  @return 是否
+ */
+- (BOOL)shouldStubbom;
+
+/**
+ *  要固定的配置信息
+ *
+ *  @return 要固定的配置信息
+ */
+- (StubbomInfo)stubbomInfo;
 
 @end
