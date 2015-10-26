@@ -21,6 +21,7 @@
 		722AF16D1BBE604C0016090A /* LJWZoomingHeaderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF16C1BBE604C0016090A /* LJWZoomingHeaderControl.m */; };
 		722AF1701BBE64F00016090A /* TestZoomingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF16F1BBE64F00016090A /* TestZoomingHeaderView.m */; };
 		7233139C1BBFBD6300849364 /* UIView+BelongController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7233139B1BBFBD6300849364 /* UIView+BelongController.m */; };
+		724D1A7F1BDE752D00344781 /* LJWZoomingHeaderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 724D1A7E1BDE752D00344781 /* LJWZoomingHeaderDefine.m */; settings = {ASSET_TAGS = (); }; };
 		E4BDCC541BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BDCC531BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		722AF16F1BBE64F00016090A /* TestZoomingHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestZoomingHeaderView.m; sourceTree = "<group>"; };
 		7233139A1BBFBD6300849364 /* UIView+BelongController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BelongController.h"; sourceTree = "<group>"; };
 		7233139B1BBFBD6300849364 /* UIView+BelongController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BelongController.m"; sourceTree = "<group>"; };
+		724D1A7D1BDE752D00344781 /* LJWZoomingHeaderDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJWZoomingHeaderDefine.h; sourceTree = "<group>"; };
+		724D1A7E1BDE752D00344781 /* LJWZoomingHeaderDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJWZoomingHeaderDefine.m; sourceTree = "<group>"; };
 		E4BDCC521BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ContentOffsetObserver.h"; sourceTree = "<group>"; };
 		E4BDCC531BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ContentOffsetObserver.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +161,8 @@
 				722AF16C1BBE604C0016090A /* LJWZoomingHeaderControl.m */,
 				7233139A1BBFBD6300849364 /* UIView+BelongController.h */,
 				7233139B1BBFBD6300849364 /* UIView+BelongController.m */,
+				724D1A7D1BDE752D00344781 /* LJWZoomingHeaderDefine.h */,
+				724D1A7E1BDE752D00344781 /* LJWZoomingHeaderDefine.m */,
 			);
 			path = LJWZoomingHeader;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4BDCC541BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.m in Sources */,
+				724D1A7F1BDE752D00344781 /* LJWZoomingHeaderDefine.m in Sources */,
 				722AF16A1BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m in Sources */,
 				722AF1701BBE64F00016090A /* TestZoomingHeaderView.m in Sources */,
 				722AF1661BBE5C4E0016090A /* UIScrollViewScrollInfo.m in Sources */,

@@ -158,6 +158,11 @@
 {
     CGFloat offset = [self.zoomingHeaderView respondsToSelector:@selector(frameOffset)] ? self.zoomingHeaderView.frameOffset : 0;
     
+    //如果是个顽固的header那就忽略frameOffset
+    if (IsStubbornAndHasStubbornInfo(self.zoomingHeaderView) && !stubbornInfoIsEqualToDontStubborn(self.zoomingHeaderView.stubbornInfo)) {
+        offset = 0.f;
+    }
+    
     CGRect frame = self.zoomingHeaderView.frame;
     frame.origin.x = 0;
     frame.origin.y = - frame.size.height + offset;

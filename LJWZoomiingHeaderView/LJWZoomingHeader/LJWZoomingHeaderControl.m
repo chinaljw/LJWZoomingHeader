@@ -12,12 +12,6 @@
 /** 默认header偏移变化速率 */
 static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
 
-#define CanPerformShouldStubborn ([self.zoomingHeaderView respondsToSelector:@selector(isStubborn)])
-#define CanPerformStubbornInfo ([self.zoomingHeaderView respondsToSelector:@selector(stubbornInfo)])
-#define IsStubborn (CanPerformShouldStubborn && self.zoomingHeaderView.isStubborn)
-#define IsStubbornAndHasStubbornInfo (IsStubborn && CanPerformStubbornInfo)
-
-
 @interface LJWZoomingHeaderControl ()
 {
     //resetFrame的次数
@@ -33,7 +27,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
 {
     
     //是否固定，调整header层级
-    if (IsStubbornAndHasStubbornInfo) {
+    if (IsStubbornAndHasStubbornInfo(self.zoomingHeaderView)) {
         StubbornInfo stbInfo = self.zoomingHeaderView.stubbornInfo;
         
         switch (stbInfo.hierarchy) {
@@ -93,8 +87,8 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     
     [self resetValue:&frameOffset withMaximum:self.zoomingHeaderView.originFrame.size.height minimum:0.f];
     
-    //如果
-    frameOffset = IsStubborn ? 0.f : frameOffset;
+    //如果很顽固弃用framOffset
+    frameOffset = IsStubbornAndHasStubbornInfo(self.zoomingHeaderView) && !stubbornInfoIsEqualToDontStubborn(self.zoomingHeaderView.stubbornInfo) ? 0.f : frameOffset;
     
     //得到变幻速率，并矫正
     CGFloat frameOffsetTrainsitionRate = [self.zoomingHeaderView respondsToSelector:@selector(frameOffsetTrainsitionRate)] ? self.zoomingHeaderView.frameOffsetTrainsitionRate : DefaultFrameOffsetTrainsitionRate;
@@ -122,7 +116,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     
     StubbornInfo stubbornInfo = DontStubbornInfo;
     
-    if (IsStubbornAndHasStubbornInfo) {
+    if (IsStubbornAndHasStubbornInfo(self.zoomingHeaderView)) {
         stubbornInfo = self.zoomingHeaderView.stubbornInfo;
     }
     

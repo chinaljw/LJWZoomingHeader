@@ -7,46 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LJWZoomingHeaderDefine.h"
 
+/**
+ *  不顽固配置信息
+ */
+extern const struct StubbornInfo DontStubbornInfo;
 
-typedef NS_ENUM(NSInteger, StubbornType)
-{
-    StubbornTypeDontStubborn = 0,
-    StubbornTypeUp = 1,
-    StubbornTypeDown = 2,
-    StubbornTypeUpAndDown = 3,
-};
+/**
+ *  比较函数
+ *
+ *  @param info_1 顽固配置1
+ *  @param info_2 顽固配置2
+ *
+ *  @return 结果
+ */
+extern BOOL compareStubbornInfoIsEqual(struct StubbornInfo info_1,struct StubbornInfo info_2);
 
-typedef NS_ENUM(NSInteger, HeaderViewHierarchy)
-{
-    HeaderViewHierarchyInTheSky = 0,
-    HeaderViewHierarchyFront = 1,
-    HeaderViewHierarchyBackground = 2,
-};
-
-struct StubbornInfo
-{
-    CGFloat y_up;
-    CGFloat y_down;
-    StubbornType type;
-    HeaderViewHierarchy hierarchy;
-};
-
-//不固定配置信息
-static const struct StubbornInfo DontStubbornInfo = {0,0,StubbornTypeDontStubborn,HeaderViewHierarchyInTheSky};
-
-static BOOL compareStubbornInfoIsEqual(struct StubbornInfo info_1,struct StubbornInfo info_2)
-{
-    return info_1.y_up == info_2.y_up && info_1.y_down == info_2.y_down && info_1.type == info_2.type && info_1.hierarchy == info_2.hierarchy;
-}
-
-static BOOL stubbornInfoIsEqualToDontStubborn(struct StubbornInfo info)
-{
-    return compareStubbornInfoIsEqual(info, DontStubbornInfo);
-}
-
-//要固定的位置
-typedef struct StubbornInfo StubbornInfo;
+/**
+ *  是否是不顽固配置
+ *
+ *  @param info 顽固配置
+ *
+ *  @return 结果
+ */
+extern BOOL stubbornInfoIsEqualToDontStubborn(struct StubbornInfo info);
 
 @protocol LJWZoomingHeaderViewProtocol <NSObject>
 

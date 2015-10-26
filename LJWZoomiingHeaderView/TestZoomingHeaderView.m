@@ -91,7 +91,7 @@
  */
 - (StubbornInfo)stubbornInfo
 {
-    StubbornInfo info = {0.f,150.f, StubbornTypeUp, HeaderViewHierarchyFront};
+    StubbornInfo info = {250.f,150.f, StubbornTypeUp, HeaderViewHierarchyFront};
     return info;
 }
 
