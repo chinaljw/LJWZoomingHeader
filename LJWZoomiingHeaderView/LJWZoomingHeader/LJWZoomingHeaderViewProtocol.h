@@ -7,6 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LJWZoomingHeaderDefine.h"
+
+/**
+ *  不顽固配置信息
+ */
+extern const struct StubbornInfo DontStubbornInfo;
+
+/**
+ *  比较函数
+ *
+ *  @param info_1 顽固配置1
+ *  @param info_2 顽固配置2
+ *
+ *  @return 结果
+ */
+extern BOOL compareStubbornInfoIsEqual(struct StubbornInfo info_1,struct StubbornInfo info_2);
+
+/**
+ *  是否是不顽固配置
+ *
+ *  @param info 顽固配置
+ *
+ *  @return 结果
+ */
+extern BOOL stubbornInfoIsEqualToDontStubborn(struct StubbornInfo info);
 
 @protocol LJWZoomingHeaderViewProtocol <NSObject>
 
@@ -39,5 +64,19 @@
  请不要给大于1.f或小于0.f的值，给了也没用😏
  */
 - (CGFloat)frameOffsetTrainsitionRate;
+
+/**
+ *  是否需要固定
+ *
+ *  @return 是否
+ */
+- (BOOL)isStubborn;
+
+/**
+ *  要固定的配置信息
+ *
+ *  @return 要固定的配置信息
+ */
+- (StubbornInfo)stubbornInfo;
 
 @end

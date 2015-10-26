@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "UIScrollViewContentOffsetObserver.h"
 #import "UIScrollView+LJWZoomingHeader.h"
 #import "TestZoomingHeaderView.h"
 
@@ -33,6 +32,8 @@
 //    [self testScrollView];
     
 //    [self.tableView removeZoomingHeaderView];
+    
+    
     
 }
 
