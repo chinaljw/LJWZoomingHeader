@@ -32,7 +32,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
 - (void)didOffsetChangedWithScrollViewScrollInfo:(UIScrollViewScrollInfo *)info
 {
     
-    //固定
+    //是否固定，调整header层级
     if (IsStubbornAndHasStubbornInfo) {
         StubbornInfo stbInfo = self.zoomingHeaderView.stubbornInfo;
         
@@ -90,13 +90,16 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     
     //得到内容往下偏移量，并矫正
     CGFloat frameOffset = [self.zoomingHeaderView respondsToSelector:@selector(frameOffset)] ? self.zoomingHeaderView.frameOffset : 0.f;
-    frameOffset = frameOffset < 0.f ? 0.f : frameOffset;
-    frameOffset = frameOffset > self.zoomingHeaderView.originFrame.size.height ? self.zoomingHeaderView.originFrame.size.height : frameOffset;
+    
+    [self resetValue:&frameOffset withMaximum:self.zoomingHeaderView.originFrame.size.height minimum:0.f];
+    
+    //如果
+    frameOffset = IsStubborn ? 0.f : frameOffset;
     
     //得到变幻速率，并矫正
     CGFloat frameOffsetTrainsitionRate = [self.zoomingHeaderView respondsToSelector:@selector(frameOffsetTrainsitionRate)] ? self.zoomingHeaderView.frameOffsetTrainsitionRate : DefaultFrameOffsetTrainsitionRate;
-    frameOffsetTrainsitionRate = frameOffsetTrainsitionRate > 1.f ? 1.f : frameOffsetTrainsitionRate;
-    frameOffsetTrainsitionRate = frameOffsetTrainsitionRate < 0.f ? 0.f : frameOffsetTrainsitionRate;
+    
+    [self resetValue:&frameOffsetTrainsitionRate withMaximum:1.f minimum:0.f];
     
     //然而，并没有什么卵用~现在有卵用了~
     if (frameOffset > 0.f &&
@@ -158,8 +161,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     
     //得到当前frame的偏移量，并矫正
     CGFloat currentOffset = frameOffset + (info.scrollView.contentOffset.y - originY) * frameOffsetTrainsitionRate;
-    currentOffset = currentOffset < 0.f ? 0.f : currentOffset;
-    currentOffset = currentOffset > frameOffset ? frameOffset : currentOffset;
+    [self resetValue:&currentOffset withMaximum:frameOffset minimum:0.f];
     
     //当Header没有完全消失时，修正frame
     if (info.scrollView.contentOffset.y != self.zoomingHeaderView.frame.origin.y + currentOffset &&
@@ -191,6 +193,13 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     if ([self.zoomingHeaderView respondsToSelector:@selector(resetSubViewsFrame)]) {
         [self.zoomingHeaderView resetSubViewsFrame];
     }
+}
+
+#pragma mark - Helper
+- (void)resetValue:(CGFloat *)value withMaximum:(CGFloat)maximum minimum:(CGFloat)minimum
+{
+    *value = *value > maximum ? maximum : *value;
+    *value = *value < minimum ? minimum : *value;
 }
 
 @end
