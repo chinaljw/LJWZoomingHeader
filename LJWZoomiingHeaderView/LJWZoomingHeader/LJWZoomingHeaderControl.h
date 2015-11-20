@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UIScrollViewContentOffsetObserver.h"
+#import <UIScrollViewContentOffsetObserver.h>
 #import "LJWZoomingHeaderViewProtocol.h"
 
 @interface LJWZoomingHeaderControl : NSObject <UIScrollViewContentOffsetObserverDelegate>
