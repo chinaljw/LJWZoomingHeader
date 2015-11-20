@@ -13,8 +13,6 @@
 
 @interface UIScrollView (LJWZoomingHeader)
 
-@property (nonatomic, strong, readonly) UIScrollViewContentOffsetObserver *contentOffsetObserver;
-
 @property (nonatomic, strong, readonly) UIView<LJWZoomingHeaderViewProtocol> *zoomingHeaderView;
 
 - (void)addZoomingHeaderView:(UIView<LJWZoomingHeaderViewProtocol> *)zoomingHeaderView;

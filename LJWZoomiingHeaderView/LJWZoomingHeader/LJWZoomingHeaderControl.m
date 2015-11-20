@@ -33,12 +33,12 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
         switch (stbInfo.hierarchy) {
             case HeaderViewHierarchyBackground:
             {
-                [info.scrollView sendSubviewToBack:self.zoomingHeaderView];
+                [info.scrollingScrollView sendSubviewToBack:self.zoomingHeaderView];
             }
                 break;
             case HeaderViewHierarchyFront:
             {
-                [info.scrollView bringSubviewToFront:self.zoomingHeaderView];
+                [info.scrollingScrollView bringSubviewToFront:self.zoomingHeaderView];
             }
                 break;
             default:
@@ -58,7 +58,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
         CGFloat maxHeight = [self.zoomingHeaderView maxmumHeight];
         maxHeight = maxHeight < 0.f ? 0.f : maxHeight;
         if (info.newContentOffset.y < - maxHeight) {
-            info.scrollView.contentOffset = CGPointMake(0, -maxHeight);
+            info.scrollingScrollView.contentOffset = CGPointMake(0, -maxHeight);
         }
         return;
     }
@@ -71,7 +71,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     //纯粹为了适配automaticallyAdjustsScrollViewInsets = YES的情况
     //然而，并没有什么卵用~
     resetCount ++;
-    if (info.scrollView.belongController.automaticallyAdjustsScrollViewInsets &&
+    if (info.scrollingScrollView.belongController.automaticallyAdjustsScrollViewInsets &&
         resetCount == 3)
     {
         self.zoomingHeaderView.frame = self.zoomingHeaderView.originFrame;
@@ -97,7 +97,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     
     //然而，并没有什么卵用~现在有卵用了~
     if (frameOffset > 0.f &&
-        - info.scrollView.contentOffset.y < self.zoomingHeaderView.frame.size.height)
+        - info.scrollingScrollView.contentOffset.y < self.zoomingHeaderView.frame.size.height)
     {
         frame.size.height += change * frameOffsetTrainsitionRate;
         frame.size.width += change * frameOffsetTrainsitionRate;
@@ -124,9 +124,9 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     if (info.scrollDirection == UIScrollViewScrollDirectionToTop)
     {
         //如果固定配置信息不等于不固定且类型是往上滑时固定； 且需要固定了~
-        if (!stubbornInfoIsEqualToDontStubborn(stubbornInfo) && stubbornInfo.type == StubbornTypeUp && info.scrollView.contentOffset.y >= - (originHeight - stubbornInfo.y_up)) {
+        if (!stubbornInfoIsEqualToDontStubborn(stubbornInfo) && stubbornInfo.type == StubbornTypeUp && info.scrollingScrollView.contentOffset.y >= - (originHeight - stubbornInfo.y_up)) {
             CGRect stubbornFrame = self.zoomingHeaderView.frame;
-            stubbornFrame.origin.y = info.scrollView.contentOffset.y - stubbornInfo.y_up;
+            stubbornFrame.origin.y = info.scrollingScrollView.contentOffset.y - stubbornInfo.y_up;
             stubbornFrame.origin.x = 0.f;
             
             //修正size
@@ -143,6 +143,22 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
         frame.size.width = frame.size.width < originWidth ? originWidth : frame.size.width;
     }
     
+    //如果固定配置信息不等于不固定且类型是往下滑时固定； 且需要固定了~
+    if (!stubbornInfoIsEqualToDontStubborn(stubbornInfo) && (stubbornInfo.type == StubbornTypeDown || stubbornInfo.type == StubbornTypeUpAndDown) && info.scrollingScrollView.contentOffset.y <= - (originHeight - stubbornInfo.y_down)) {
+        
+        CGRect stubbornFrame = self.zoomingHeaderView.frame;
+        stubbornFrame.origin.y = info.scrollingScrollView.contentOffset.y;
+        stubbornFrame.origin.x = 0.f;
+        
+        //修正size
+        stubbornFrame.size.width = stubbornFrame.size.width > originWidth ? originWidth : stubbornFrame.size.width;
+        stubbornFrame.size.height = stubbornFrame.size.height > originHeight ? originHeight : stubbornFrame.size.height;
+        
+        self.zoomingHeaderView.frame = stubbornFrame;
+        //        NSLog(@"down in %lf", stubbornFrame.origin.y);
+        return;
+    }
+    
     //判断是否往下滑，且header是否不在屏幕中
     if (info.scrollDirection == UIScrollViewScrollDirectionToBottom &&
         info.newContentOffset.y > originY)
@@ -154,15 +170,15 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     }
     
     //得到当前frame的偏移量，并矫正
-    CGFloat currentOffset = frameOffset + (info.scrollView.contentOffset.y - originY) * frameOffsetTrainsitionRate;
+    CGFloat currentOffset = frameOffset + (info.scrollingScrollView.contentOffset.y - originY) * frameOffsetTrainsitionRate;
     [self resetValue:&currentOffset withMaximum:frameOffset minimum:0.f];
     
     //当Header没有完全消失时，修正frame
-    if (info.scrollView.contentOffset.y != self.zoomingHeaderView.frame.origin.y + currentOffset &&
+    if (info.scrollingScrollView.contentOffset.y != self.zoomingHeaderView.frame.origin.y + currentOffset &&
         info.newContentOffset.y < originY &&
         info.newContentOffset.y < 0)
     {
-        frame.origin.y = info.scrollView.contentOffset.y;
+        frame.origin.y = info.scrollingScrollView.contentOffset.y;
 //#warning 稍等，哥哥要出去玩了，回来再搞，先这样了~
         frame.size.height = -frame.origin.y + currentOffset;
         frame.size.width = frame.size.height / originHeight * originWidth;
@@ -171,14 +187,14 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
 
     self.zoomingHeaderView.frame = frame;
     
-    info.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(frame.size.height - currentOffset, 0, 0, 0);
+    info.scrollingScrollView.scrollIndicatorInsets = UIEdgeInsetsMake(frame.size.height - currentOffset, 0, 0, 0);
 
 }
 
 - (void)moveToHCenterWithInfo:(UIScrollViewScrollInfo *)info
 {
     CGPoint center = self.zoomingHeaderView.center;
-    center.x = info.scrollView.frame.size.width / 2;
+    center.x = info.scrollingScrollView.frame.size.width / 2;
     self.zoomingHeaderView.center = center;
 }
 

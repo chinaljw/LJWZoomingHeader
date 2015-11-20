@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "UIScrollViewContentOffsetObserver.h"
 
+/*
+ 直接scrollView.contentOffsetObserver就能用了
+ */
+
 @interface UIScrollView (ContentOffsetObserver)
 
 @property (nonatomic, strong, readonly) UIScrollViewContentOffsetObserver *contentOffsetObserver;
-
-- (void)addContentOffsetObserver:(UIScrollViewContentOffsetObserver *)observer;
-
-- (void)removeContentOffsetObserver:(UIScrollViewContentOffsetObserver *)observer;
 
 @end

@@ -22,4 +22,10 @@ static NSString *const ContentOffsetKeyPath = @"contentOffset";
 
 @property (nonatomic, weak) id<UIScrollViewContentOffsetObserverDelegate> delegate;
 
+@property (nonatomic, strong) NSMutableArray *delegates;
+
+- (void)addDelegate:(id<UIScrollViewContentOffsetObserverDelegate>)delegate;
+
+- (void)removeDelegate:(id<UIScrollViewContentOffsetObserverDelegate>)delegate;
+
 @end

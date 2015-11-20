@@ -1,0 +1,10 @@
+PODS:
+  - XJJScrollViewObserver (1.0.0)
+
+DEPENDENCIES:
+  - XJJScrollViewObserver (~> 1.0.0)
+
+SPEC CHECKSUMS:
+  XJJScrollViewObserver: 917195c5e2ec1f825f67db18ca54cb62696e42ce
+
+COCOAPODS: 0.37.2
