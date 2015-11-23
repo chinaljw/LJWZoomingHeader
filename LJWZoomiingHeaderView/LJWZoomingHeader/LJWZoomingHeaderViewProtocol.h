@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "LJWZoomingHeaderDefine.h"
 
+@class UIScrollViewScrollInfo;
+
 /**
  *  不顽固配置信息
  */
@@ -44,7 +46,7 @@ extern BOOL stubbornInfoIsEqualToDontStubborn(struct StubbornInfo info);
 /**
  在这里设置子视图的frame让他们能跟着一块儿变大变小，粗粗细细，伸伸缩缩~
  */
-- (void)resetSubViewsFrame;
+- (void)resetSubViewsFrameWithScrollInfo:(UIScrollViewScrollInfo *)info;
 
 /**
  最大高度

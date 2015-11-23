@@ -16,7 +16,7 @@
     if (self) {
         [self addSubview:self.imageView];
         [self addSubview:self.centerView];
-        [self resetSubViewsFrame];
+        [self resetSubViewsFrameWithScrollInfo:nil];
     }
     return self;
 }
@@ -50,7 +50,7 @@
 
 #pragma mark Protocol 这里都是可选的
 //在这里设置子视图的frame让他们能跟着一块儿变大变小，粗粗细细，伸伸缩缩~
-- (void)resetSubViewsFrame
+- (void)resetSubViewsFrameWithScrollInfo:(UIScrollViewScrollInfo *)info
 {
     self.centerView.frame = CGRectMake(0, 0, self.frame.size.width / 3, self.frame.size.height / 3);
     self.centerView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
