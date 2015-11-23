@@ -10,13 +10,17 @@
 
 @implementation UIScrollViewScrollInfo
 
-- (instancetype)initWithChanage:(NSDictionary *)change object:(id)object
+- (instancetype)initWithChanage:(NSDictionary *)change
+            scrollingScrollView:(UIScrollView *)scrollingScrollView
+                         target:(id<UIScrollViewContentOffsetObserverDelegate>)target
 {
     self = [self init];
     
     if (self) {
         
-        self.scrollView = (UIScrollView *)object;
+        self.scrollingScrollView = scrollingScrollView;
+        self.target = target;
+        
         self.oldContentOffset = [change[NSKeyValueChangeOldKey] CGPointValue];
         self.newContentOffset = [change[NSKeyValueChangeNewKey] CGPointValue];
         

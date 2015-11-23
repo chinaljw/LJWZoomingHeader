@@ -20,65 +20,7 @@
 
 @implementation UIScrollView (LJWZoomingHeader)
 
-#pragma mark - MethodSwizzling
-+ (void)load
-{
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        SEL deallocOriginSEL = NSSelectorFromString(@"dealloc");
-        SEL deallocNewSEL = @selector(ljw_contentOffsetObserver_dealloc);
-        [self swizzlOriginSEL:deallocOriginSEL newSEL:deallocNewSEL];
-        
-    });
-    
-}
-
-- (void)ljw_contentOffsetObserver_dealloc
-{
-    
-    //给tableview加上headerview后再设置self.contentInsets就会野指针异常，不解。所以dealloc里就不设置了
-    [self.zoomingHeaderView removeFromSuperview];
-    self.zoomingHeaderView = nil;
-    [self removeContentOffsetObserver];
-    
-    [self ljw_contentOffsetObserver_dealloc];
-}
-
-//- (void)ljw_contentOffsetObserver_layoutSubViews
-//{
-//    
-////    [self resetZoomingHeaderViewFrame];
-//    
-//    [self ljw_contentOffsetObserver_layoutSubViews];
-//}
-
-+ (void)swizzlOriginSEL:(SEL)originSEL newSEL:(SEL)newSEL
-{
-    Method originMethod = class_getInstanceMethod(self.class, originSEL);
-    Method newMethod = class_getInstanceMethod(self.class, newSEL);
-    
-    if (class_addMethod(self.class, originSEL, method_getImplementation(newMethod), method_getTypeEncoding(originMethod))) {
-        class_replaceMethod(self.class, newSEL, method_getImplementation(originMethod), method_getTypeEncoding(originMethod));
-    }
-    else
-    {
-        method_exchangeImplementations(originMethod, newMethod);
-    }
-}
-
 #pragma mark - Setter & Getter
-- (void)setContentOffsetObserver:(UIScrollViewContentOffsetObserver *)contentOffsetObserver
-{
-    objc_setAssociatedObject(self, @selector(contentOffsetObserver), contentOffsetObserver, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (UIScrollViewContentOffsetObserver *)contentOffsetObserver
-{
-    return objc_getAssociatedObject(self, _cmd);
-}
-
 - (void)setZoomingHeaderView:(UIView<LJWZoomingHeaderViewProtocol> *)zoomingHeaderView
 {
     objc_setAssociatedObject(self, @selector(zoomingHeaderView), zoomingHeaderView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -129,8 +71,6 @@
     
     [self addControl];
     
-    [self addContentOffsetObserver];
-    
 }
 
 - (void)removeZoomingHeaderView
@@ -143,7 +83,7 @@
     [self setContentInset:insets];
     self.scrollIndicatorInsets = insets;
     
-    [self removeContentOffsetObserver];
+    [self.contentOffsetObserver removeDelegate:self.control];
 }
 
 #pragma mark - Helper
@@ -192,20 +132,7 @@
     LJWZoomingHeaderControl *control = [[LJWZoomingHeaderControl alloc] init];
     control.zoomingHeaderView = self.zoomingHeaderView;
     self.control = control;
-}
-
-#pragma mark - Observer
-- (void)addContentOffsetObserver
-{
-    UIScrollViewContentOffsetObserver *observer = [[UIScrollViewContentOffsetObserver alloc] init];
-    observer.delegate = self.control;
-    
-    [self addContentOffsetObserver:observer];
-}
-
-- (void)removeContentOffsetObserver
-{
-    [self removeContentOffsetObserver:self.contentOffsetObserver];
+    [self.contentOffsetObserver addDelegate:self.control];
 }
 
 @end

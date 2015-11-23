@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CDDB0B5C7FABABE1C264D47 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED458347D2EFE5021DB037D5 /* libPods.a */; };
 		722AF1331BBE3F760016090A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1321BBE3F760016090A /* main.m */; };
 		722AF1361BBE3F760016090A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1351BBE3F760016090A /* AppDelegate.m */; };
 		722AF1391BBE3F760016090A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1381BBE3F760016090A /* ViewController.m */; };
@@ -15,14 +16,11 @@
 		722AF1411BBE3F760016090A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722AF13F1BBE3F760016090A /* LaunchScreen.xib */; };
 		722AF14D1BBE3F760016090A /* LJWZoomiingHeaderViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF14C1BBE3F760016090A /* LJWZoomiingHeaderViewTests.m */; };
 		722AF15E1BBE509E0016090A /* 7494e68agb7a98471e34f&690.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 722AF15D1BBE509E0016090A /* 7494e68agb7a98471e34f&690.jpg */; };
-		722AF1651BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1621BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m */; };
-		722AF1661BBE5C4E0016090A /* UIScrollViewScrollInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1641BBE5C4E0016090A /* UIScrollViewScrollInfo.m */; };
 		722AF16A1BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF1691BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m */; };
 		722AF16D1BBE604C0016090A /* LJWZoomingHeaderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF16C1BBE604C0016090A /* LJWZoomingHeaderControl.m */; };
 		722AF1701BBE64F00016090A /* TestZoomingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722AF16F1BBE64F00016090A /* TestZoomingHeaderView.m */; };
 		7233139C1BBFBD6300849364 /* UIView+BelongController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7233139B1BBFBD6300849364 /* UIView+BelongController.m */; };
-		724D1A7F1BDE752D00344781 /* LJWZoomingHeaderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 724D1A7E1BDE752D00344781 /* LJWZoomingHeaderDefine.m */; settings = {ASSET_TAGS = (); }; };
-		E4BDCC541BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BDCC531BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.m */; };
+		724D1A7F1BDE752D00344781 /* LJWZoomingHeaderDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 724D1A7E1BDE752D00344781 /* LJWZoomingHeaderDefine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		319D11543FA76EB92B99189A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		722AF12D1BBE3F760016090A /* LJWZoomiingHeaderView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJWZoomiingHeaderView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		722AF1311BBE3F760016090A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		722AF1321BBE3F760016090A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,10 +49,6 @@
 		722AF14B1BBE3F760016090A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		722AF14C1BBE3F760016090A /* LJWZoomiingHeaderViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJWZoomiingHeaderViewTests.m; sourceTree = "<group>"; };
 		722AF15D1BBE509E0016090A /* 7494e68agb7a98471e34f&690.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7494e68agb7a98471e34f&690.jpg"; sourceTree = "<group>"; };
-		722AF1611BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewContentOffsetObserver.h; sourceTree = "<group>"; };
-		722AF1621BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewContentOffsetObserver.m; sourceTree = "<group>"; };
-		722AF1631BBE5C4E0016090A /* UIScrollViewScrollInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewScrollInfo.h; sourceTree = "<group>"; };
-		722AF1641BBE5C4E0016090A /* UIScrollViewScrollInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewScrollInfo.m; sourceTree = "<group>"; };
 		722AF1671BBE5C750016090A /* LJWZoomingHeaderViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJWZoomingHeaderViewProtocol.h; sourceTree = "<group>"; };
 		722AF1681BBE5C980016090A /* UIScrollView+LJWZoomingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+LJWZoomingHeader.h"; sourceTree = "<group>"; };
 		722AF1691BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+LJWZoomingHeader.m"; sourceTree = "<group>"; };
@@ -65,8 +60,8 @@
 		7233139B1BBFBD6300849364 /* UIView+BelongController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BelongController.m"; sourceTree = "<group>"; };
 		724D1A7D1BDE752D00344781 /* LJWZoomingHeaderDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJWZoomingHeaderDefine.h; sourceTree = "<group>"; };
 		724D1A7E1BDE752D00344781 /* LJWZoomingHeaderDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJWZoomingHeaderDefine.m; sourceTree = "<group>"; };
-		E4BDCC521BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ContentOffsetObserver.h"; sourceTree = "<group>"; };
-		E4BDCC531BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ContentOffsetObserver.m"; sourceTree = "<group>"; };
+		AAA0C21F91982DEC28FF117D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		ED458347D2EFE5021DB037D5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDDB0B5C7FABABE1C264D47 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,12 +83,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29212414D210655FD83EE397 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAA0C21F91982DEC28FF117D /* Pods.debug.xcconfig */,
+				319D11543FA76EB92B99189A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		722AF1241BBE3F760016090A = {
 			isa = PBXGroup;
 			children = (
 				722AF12F1BBE3F760016090A /* LJWZoomiingHeaderView */,
 				722AF1491BBE3F760016090A /* LJWZoomiingHeaderViewTests */,
 				722AF12E1BBE3F760016090A /* Products */,
+				29212414D210655FD83EE397 /* Pods */,
+				ADA6C5F4FCB6416EC2643C36 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,7 +160,6 @@
 		722AF15F1BBE5C030016090A /* LJWZoomingHeader */ = {
 			isa = PBXGroup;
 			children = (
-				722AF1601BBE5C4E0016090A /* LJWScrollViewObserver */,
 				722AF1671BBE5C750016090A /* LJWZoomingHeaderViewProtocol.h */,
 				722AF1681BBE5C980016090A /* UIScrollView+LJWZoomingHeader.h */,
 				722AF1691BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m */,
@@ -167,17 +173,12 @@
 			path = LJWZoomingHeader;
 			sourceTree = "<group>";
 		};
-		722AF1601BBE5C4E0016090A /* LJWScrollViewObserver */ = {
+		ADA6C5F4FCB6416EC2643C36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				722AF1611BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.h */,
-				722AF1621BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m */,
-				722AF1631BBE5C4E0016090A /* UIScrollViewScrollInfo.h */,
-				722AF1641BBE5C4E0016090A /* UIScrollViewScrollInfo.m */,
-				E4BDCC521BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.h */,
-				E4BDCC531BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.m */,
+				ED458347D2EFE5021DB037D5 /* libPods.a */,
 			);
-			path = LJWScrollViewObserver;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 722AF1501BBE3F760016090A /* Build configuration list for PBXNativeTarget "LJWZoomiingHeaderView" */;
 			buildPhases = (
+				F878610CCAEF322D796C0AFA /* Check Pods Manifest.lock */,
 				722AF1291BBE3F760016090A /* Sources */,
 				722AF12A1BBE3F760016090A /* Frameworks */,
 				722AF12B1BBE3F760016090A /* Resources */,
+				B168DEC41BC7F44B2002BE8B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,17 +279,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B168DEC41BC7F44B2002BE8B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F878610CCAEF322D796C0AFA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		722AF1291BBE3F760016090A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4BDCC541BCB4C81009E9EF5 /* UIScrollView+ContentOffsetObserver.m in Sources */,
 				724D1A7F1BDE752D00344781 /* LJWZoomingHeaderDefine.m in Sources */,
 				722AF16A1BBE5C980016090A /* UIScrollView+LJWZoomingHeader.m in Sources */,
 				722AF1701BBE64F00016090A /* TestZoomingHeaderView.m in Sources */,
-				722AF1661BBE5C4E0016090A /* UIScrollViewScrollInfo.m in Sources */,
-				722AF1651BBE5C4E0016090A /* UIScrollViewContentOffsetObserver.m in Sources */,
 				7233139C1BBFBD6300849364 /* UIView+BelongController.m in Sources */,
 				722AF1391BBE3F760016090A /* ViewController.m in Sources */,
 				722AF16D1BBE604C0016090A /* LJWZoomingHeaderControl.m in Sources */,
@@ -416,24 +449,26 @@
 		};
 		722AF1511BBE3F760016090A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAA0C21F91982DEC28FF117D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LJWZoomiingHeaderView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ljw.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaodun.LJWZoomiingHeaderView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		722AF1521BBE3F760016090A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 319D11543FA76EB92B99189A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LJWZoomiingHeaderView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ljw.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaodun.LJWZoomiingHeaderView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
