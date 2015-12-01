@@ -120,7 +120,9 @@
         topInset -= 64.f;
     }
     
-    self.contentInset = self.contentInset;
+    UIEdgeInsets inset = self.contentInset;
+    inset.top = topInset;
+    self.contentInset = inset;
     
     self.scrollIndicatorInsets = self.contentInset;
     
