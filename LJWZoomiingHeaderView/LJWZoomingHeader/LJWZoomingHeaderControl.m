@@ -51,7 +51,7 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     
     [self moveToHCenterWithInfo:info];
     
-    [self resetSubviews];
+    [self resetSubviewsWithScrollInfo:info];
     
     //要放后面，不然会有惊喜~~~~
     if ([self.zoomingHeaderView respondsToSelector:@selector(maxmumHeight)]) {
@@ -198,10 +198,10 @@ static CGFloat const DefaultFrameOffsetTrainsitionRate = 0.5f;
     self.zoomingHeaderView.center = center;
 }
 
-- (void)resetSubviews
+- (void)resetSubviewsWithScrollInfo:(UIScrollViewScrollInfo *)info
 {
-    if ([self.zoomingHeaderView respondsToSelector:@selector(resetSubViewsFrame)]) {
-        [self.zoomingHeaderView resetSubViewsFrame];
+    if ([self.zoomingHeaderView respondsToSelector:@selector(resetSubViewsFrameWithScrollInfo:)]) {
+        [self.zoomingHeaderView resetSubViewsFrameWithScrollInfo:info];
     }
 }
 
