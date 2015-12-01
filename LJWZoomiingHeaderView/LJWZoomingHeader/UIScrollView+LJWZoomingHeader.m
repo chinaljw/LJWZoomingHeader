@@ -120,7 +120,7 @@
         topInset -= 64.f;
     }
     
-    self.contentInset = UIEdgeInsetsMake(topInset, 0, 0, 0);
+    self.contentInset = self.contentInset;
     
     self.scrollIndicatorInsets = self.contentInset;
     
